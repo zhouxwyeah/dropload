@@ -80,7 +80,11 @@
             me._scrollContentHeight = me.$element[0].scrollHeight;
             me._scrollWindowHeight = me.$element.height();
         }
-        fnAutoLoad(me);
+        //初次进来，android碰到没有自动加载，估计是算屏幕距离有坑，修改为初次进来一定加载
+        if(autoLoad){
+            loadDown(me);    
+        }
+        
 
         // 窗口调整
         $win.on('resize',function(){
